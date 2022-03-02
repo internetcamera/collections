@@ -17,8 +17,8 @@ import { FunctionFragment, Result, EventFragment } from "@ethersproject/abi";
 import { Listener, Provider } from "@ethersproject/providers";
 import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
 
-export interface ExampleNFTInterface extends utils.Interface {
-  contractName: "ExampleNFT";
+export interface IERC1155MetadataURIInterface extends utils.Interface {
+  contractName: "IERC1155MetadataURI";
   functions: {
     "balanceOf(address,uint256)": FunctionFragment;
     "balanceOfBatch(address[],uint256[])": FunctionFragment;
@@ -140,13 +140,13 @@ export type URIEvent = TypedEvent<
 
 export type URIEventFilter = TypedEventFilter<URIEvent>;
 
-export interface ExampleNFT extends BaseContract {
-  contractName: "ExampleNFT";
+export interface IERC1155MetadataURI extends BaseContract {
+  contractName: "IERC1155MetadataURI";
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
 
-  interface: ExampleNFTInterface;
+  interface: IERC1155MetadataURIInterface;
 
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
@@ -215,7 +215,7 @@ export interface ExampleNFT extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
-    uri(arg0: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
+    uri(id: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
   };
 
   balanceOf(
@@ -265,7 +265,7 @@ export interface ExampleNFT extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
-  uri(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
+  uri(id: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
   callStatic: {
     balanceOf(
@@ -315,7 +315,7 @@ export interface ExampleNFT extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    uri(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
+    uri(id: BigNumberish, overrides?: CallOverrides): Promise<string>;
   };
 
   filters: {
@@ -415,7 +415,7 @@ export interface ExampleNFT extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    uri(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    uri(id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -467,7 +467,7 @@ export interface ExampleNFT extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     uri(
-      arg0: BigNumberish,
+      id: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };
