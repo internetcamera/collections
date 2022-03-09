@@ -1,0 +1,27 @@
+## Infra
+- Set up domain
+- Set up vercel app/deployment
+- Error handling?
+
+## Contracts
+- Use IPFS folders by default (have tokenID inside uri string) [CJ]
+- Remove addPhoto(s) functions for now
+- Proxy deployment setup (later)
+- write tests for this contract (later)
+- explore optimizations / diamond standard / etc (later)
+
+## Webapp
+- Create a collection flow [Shahruz]
+  - Taking in metadata for the collection
+  - Deploying a contract and subdomain site
+  - Upload photos to ipfs
+  - Design bits [Sam]
+  
+- Collection site frontend [Kevin]
+  - Site per subdomain
+  - View all the photos
+  - Allow minting for the appropriate fees
+  - Design bits [Sam]
+
+## Subgraph
+- Show photos in a collection with sales and owner information
